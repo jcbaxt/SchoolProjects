@@ -1,0 +1,65 @@
+//Grading ID: N9350
+//Program 1
+//Due: 02/10/2019
+//Course: CIS 199-75
+//Calculates various costs associated with laying carpet based on the customer's needs
+using System;
+using static System.Console;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            double maxWidth;// maximum width of room in feet
+            double maxLength;// maximum length of the room in feet
+            double sqYard;// area of room in sq yards
+            double yardPrice;// price of carpet per sq yard
+            double carpetCost;//cost of carpet
+            double paddingCost;//cost of padding
+            double laborCost;//total cost of labor
+            double totalCost;//total cost of the carpet job
+            int padding;// how many layers of padding requested, 1 or 2
+            int firstRoom;// whether or not this is the first room to be carpeted
+            const int FIRST_ROOM = 100;// extra 100 for first room
+            const double PADDING = 2.75;//cost of padding per sq yard
+            const int YARD_CONVERT = 9;// divide area by 9 to convert into yards
+            const double WASTE = 0.10;//10% waste cost for carpet and padding
+            const double LABOR = 4.50;//cost of labor per sq. yard
+
+            //user input
+            WriteLine("Carpet Estimator");
+            WriteLine("");
+            Write("Enter the max width of room (in feet):     ");
+            maxWidth = double.Parse(ReadLine());
+            Write("Enter max length of room (in feet):        ");
+            maxLength = double.Parse(ReadLine());
+            Write("Enter the carpet price (per sq. yard):     ");
+            yardPrice = double.Parse(ReadLine());
+            Write("Enter layers of padding to use (1 or 2):   ");
+            padding = int.Parse(ReadLine());
+            Write("Is this the first room? (1 = YES, 0 = NO): ");
+            firstRoom = int.Parse(ReadLine());
+
+            //calculations
+            sqYard = maxWidth * maxLength / YARD_CONVERT;
+            carpetCost = (sqYard * yardPrice) + ((sqYard * yardPrice) * WASTE);
+            paddingCost = (sqYard * PADDING * padding) + ((sqYard * PADDING * padding)*WASTE);
+            laborCost = (sqYard * LABOR) + (FIRST_ROOM * firstRoom);
+            totalCost = carpetCost + paddingCost + laborCost;
+
+            //output
+            WriteLine("");
+            WriteLine($"Sq. Yards Needed:     {sqYard:F1}");
+            WriteLine($"Carpet Cost:        {carpetCost:C}");
+            WriteLine($"Padding Cost:       {paddingCost,6:C}");
+            WriteLine($"Labor Cost          {laborCost:C}");
+            WriteLine($"Total Cost:       {totalCost,6:C}");
+        }
+    }
+}
