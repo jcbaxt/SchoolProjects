@@ -1,7 +1,0 @@
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\bin\Debug\Program1.exe.config
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\bin\Debug\Program1.exe
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\bin\Debug\Program1.pdb
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\obj\Debug\Program1.csprojAssemblyReference.cache
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\obj\Debug\Program1.csproj.CoreCompileInputs.cache
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\obj\Debug\Program1.exe
-C:\Users\Joseph Baxter\Desktop\clogepaper\Cis 199 projects\Program1\Program1\obj\Debug\Program1.pdb
