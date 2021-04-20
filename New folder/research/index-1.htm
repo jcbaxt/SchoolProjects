@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={licenseKey:"bcb61ecd7f",applicationID:"41752661"};window.NREUM||(NREUM={}),__nr_require=function(e,t,n){function r(n){if(!t[n]){var i=t[n]={exports:{}};e[n][0].call(i.exports,function(t){var i=e[n][1][t];return r(i||t)},i,i.exports)}return t[n].exports}if("function"==typeof __nr_require)return __nr_require;for(var i=0;i<n.length;i++)r(n[i]);return r}({1:[function(e,t,n){function r(){}function i(e,t,n){return function(){return o(e,[u.now()].concat(c(arguments)),t?null:this,n),t?void 0:this}}var o=e("handle"),a=e(6),c=e(7),f=e("ee").get("tracer"),u=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],p="api-",l=p+"ixn-";a(d,function(e,t){s[t]=i(p+t,!0,"api")}),s.addPageAction=i(p+"addPageAction",!0),s.setCurrentRouteName=i(p+"routeName",!0),t.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,t){var n={},r=this,i="function"==typeof t;return o(l+"tracer",[u.now(),e,n],r),function(){if(f.emit((i?"":"no-")+"fn-start",[u.now(),r,i],n),i)try{return t.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],n),e}finally{f.emit("fn-end",[u.now()],n)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,t){m[t]=i(l+t)}),newrelic.noticeError=function(e,t){"string"==typeof e&&(e=new Error(e)),o("err",[e,u.now(),!1,t])}},{}],2:[function(e,t,n){function r(){return c.exists&&performance.now?Math.round(performance.now()):(o=Math.max((new Date).getTime(),o))-a}function i(){return o}var o=(new Date).getTime(),a=o,c=e(8);t.exports=r,t.exports.offset=a,t.exports.getLastTimestamp=i},{}],3:[function(e,t,n){function r(e,t){var n=e.getEntries();n.forEach(function(e){"first-paint"===e.name?d("timing",["fp",Math.floor(e.startTime)]):"first-contentful-paint"===e.name&&d("timing",["fcp",Math.floor(e.startTime)])})}function i(e,t){var n=e.getEntries();n.length>0&&d("lcp",[n[n.length-1]])}function o(e){e.getEntries().forEach(function(e){e.hadRecentInput||d("cls",[e])})}function a(e){if(e instanceof m&&!g){var t=Math.round(e.timeStamp),n={type:e.type};t<=p.now()?n.fid=p.now()-t:t>p.offset&&t<=Date.now()?(t-=p.offset,n.fid=p.now()-t):t=p.now(),g=!0,d("timing",["fi",t,n])}}function c(e){d("pageHide",[p.now(),e])}if(!("init"in NREUM&&"page_view_timing"in NREUM.init&&"enabled"in NREUM.init.page_view_timing&&NREUM.init.page_view_timing.enabled===!1)){var f,u,s,d=e("handle"),p=e("loader"),l=e(5),m=NREUM.o.EV;if("PerformanceObserver"in window&&"function"==typeof window.PerformanceObserver){f=new PerformanceObserver(r);try{f.observe({entryTypes:["paint"]})}catch(v){}u=new PerformanceObserver(i);try{u.observe({entryTypes:["largest-contentful-paint"]})}catch(v){}s=new PerformanceObserver(o);try{s.observe({type:"layout-shift",buffered:!0})}catch(v){}}if("addEventListener"in document){var g=!1,y=["click","keydown","mousedown","pointerdown","touchstart"];y.forEach(function(e){document.addEventListener(e,a,!1)})}l(c)}},{}],4:[function(e,t,n){function r(e,t){if(!i)return!1;if(e!==i)return!1;if(!t)return!0;if(!o)return!1;for(var n=o.split("."),r=t.split("."),a=0;a<r.length;a++)if(r[a]!==n[a])return!1;return!0}var i=null,o=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var c=navigator.userAgent,f=c.match(a);f&&c.indexOf("Chrome")===-1&&c.indexOf("Chromium")===-1&&(i="Safari",o=f[1])}t.exports={agent:i,version:o,match:r}},{}],5:[function(e,t,n){function r(e){function t(){e(a&&document[a]?document[a]:document[i]?"hidden":"visible")}"addEventListener"in document&&o&&document.addEventListener(o,t,!1)}t.exports=r;var i,o,a;"undefined"!=typeof document.hidden?(i="hidden",o="visibilitychange",a="visibilityState"):"undefined"!=typeof document.msHidden?(i="msHidden",o="msvisibilitychange"):"undefined"!=typeof document.webkitHidden&&(i="webkitHidden",o="webkitvisibilitychange",a="webkitVisibilityState")},{}],6:[function(e,t,n){function r(e,t){var n=[],r="",o=0;for(r in e)i.call(e,r)&&(n[o]=t(r,e[r]),o+=1);return n}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],7:[function(e,t,n){function r(e,t,n){t||(t=0),"undefined"==typeof n&&(n=e?e.length:0);for(var r=-1,i=n-t||0,o=Array(i<0?0:i);++r<i;)o[r]=e[t+r];return o}t.exports=r},{}],8:[function(e,t,n){t.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,t,n){function r(){}function i(e){function t(e){return e&&e instanceof r?e:e?f(e,c,o):o()}function n(n,r,i,o){if(!p.aborted||o){e&&e(n,r,i);for(var a=t(i),c=v(n),f=c.length,u=0;u<f;u++)c[u].apply(a,r);var d=s[w[n]];return d&&d.push([b,n,r,a]),a}}function l(e,t){h[e]=v(e).concat(t)}function m(e,t){var n=h[e];if(n)for(var r=0;r<n.length;r++)n[r]===t&&n.splice(r,1)}function v(e){return h[e]||[]}function g(e){return d[e]=d[e]||i(n)}function y(e,t){u(e,function(e,n){t=t||"feature",w[n]=t,t in s||(s[t]=[])})}var h={},w={},b={on:l,addEventListener:l,removeEventListener:m,emit:n,get:g,listeners:v,context:t,buffer:y,abort:a,aborted:!1};return b}function o(){return new r}function a(){(s.api||s.feature)&&(p.aborted=!0,s=p.backlog={})}var c="nr@context",f=e("gos"),u=e(6),s={},d={},p=t.exports=i();p.backlog=s},{}],gos:[function(e,t,n){function r(e,t,n){if(i.call(e,t))return e[t];var r=n();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,t,{value:r,writable:!0,enumerable:!1}),r}catch(o){}return e[t]=r,r}var i=Object.prototype.hasOwnProperty;t.exports=r},{}],handle:[function(e,t,n){function r(e,t,n,r){i.buffer([e],r),i.emit(e,t,n)}var i=e("ee").get("handle");t.exports=r,r.ee=i},{}],id:[function(e,t,n){function r(e){var t=typeof e;return!e||"object"!==t&&"function"!==t?-1:e===window?0:a(e,o,function(){return i++})}var i=1,o="nr@id",a=e("gos");t.exports=r},{}],loader:[function(e,t,n){function r(){if(!E++){var e=b.info=NREUM.info,t=p.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&t))return u.abort();f(h,function(t,n){e[t]||(e[t]=n)});var n=a();c("mark",["onload",n+b.offset],null,"api"),c("timing",["load",n]);var r=p.createElement("script");r.src="https://"+e.agent,t.parentNode.insertBefore(r,t)}}function i(){"complete"===p.readyState&&o()}function o(){c("mark",["domContent",a()+b.offset],null,"api")}var a=e(2),c=e("handle"),f=e(6),u=e("ee"),s=e(4),d=window,p=d.document,l="addEventListener",m="attachEvent",v=d.XMLHttpRequest,g=v&&v.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:v,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var y=""+location,h={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1184.min.js"},w=v&&g&&g[l]&&!/CriOS/.test(navigator.userAgent),b=t.exports={offset:a.getLastTimestamp(),now:a,origin:y,features:{},xhrWrappable:w,userAgent:s};e(1),e(3),p[l]?(p[l]("DOMContentLoaded",o,!1),d[l]("load",r,!1)):(p[m]("onreadystatechange",i),d[m]("onload",r)),c("mark",["firstbyte",a.getLastTimestamp()],null,"api");var E=0},{}],"wrap-function":[function(e,t,n){function r(e){return!(e&&e instanceof Function&&e.apply&&!e[a])}var i=e("ee"),o=e(7),a="nr@original",c=Object.prototype.hasOwnProperty,f=!1;t.exports=function(e,t){function n(e,t,n,i){function nrWrapper(){var r,a,c,f;try{a=this,r=o(arguments),c="function"==typeof n?n(r,a):n||{}}catch(u){p([u,"",[r,a,i],c])}s(t+"start",[r,a,i],c);try{return f=e.apply(a,r)}catch(d){throw s(t+"err",[r,a,d],c),d}finally{s(t+"end",[r,a,f],c)}}return r(e)?e:(t||(t=""),nrWrapper[a]=e,d(e,nrWrapper),nrWrapper)}function u(e,t,i,o){i||(i="");var a,c,f,u="-"===i.charAt(0);for(f=0;f<t.length;f++)c=t[f],a=e[c],r(a)||(e[c]=n(a,u?c+i:i,o,c))}function s(n,r,i){if(!f||t){var o=f;f=!0;try{e.emit(n,r,i,t)}catch(a){p([a,n,r,i])}f=o}}function d(e,t){if(Object.defineProperty&&Object.keys)try{var n=Object.keys(e);return n.forEach(function(n){Object.defineProperty(t,n,{get:function(){return e[n]},set:function(t){return e[n]=t,t}})}),t}catch(r){p([r])}for(var i in e)c.call(e,i)&&(t[i]=e[i]);return t}function p(t){try{e.emit("internal-error",t)}catch(n){}}return e||(e=i),n.inPlace=u,n.flag=a,n}},{}]},{},["loader"]);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="apple-touch-icon" sizes="180x180" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/favicon-16x16.png">
+<link rel="manifest" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/manifest.json">
+<link rel="mask-icon" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/favicon.ico">
+<meta name="msapplication-config" content="https://www.cshl.edu/wp-content/themes/cshl-coresite/favicons/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<title>Research - Cold Spring Harbor Laboratory</title>
+			<script>
+				// Allow detecting when fb api is loaded.
+				function Deferred() {
+					var self = this;
+					this.promise = new Promise( function( resolve, reject ) {
+						self.reject  = reject;
+						self.resolve = resolve;
+					});
+				}
+				window.fbLoaded = new Deferred();
+
+				window.fbAsyncInit = function() {
+					FB.init({
+						appId            : '2290108497977688',
+						autoLogAppEvents : true,
+						xfbml            : true,
+						version          : 'v3.0'
+					});
+
+					window.fbLoaded.resolve();
+				};
+
+				(function(d, s, id){
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) {return;}
+					js = d.createElement(s); js.id = id;
+					js.src = "https://connect.facebook.net/en_US/sdk.js";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			
+<!-- This site is optimized with the Yoast SEO plugin v13.4.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<meta name="description" content="The innovative spirit, vision, and talent of CSHL&#039;s scientists continue to place CSHL among the top 1% of life science institutions most cited in published research."/>
+<meta name="robots" content="max-snippet:-1, max-image-preview:large, max-video-preview:-1"/>
+<link rel="canonical" href="https://www.cshl.edu/research/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Research - Cold Spring Harbor Laboratory" />
+<meta property="og:description" content="The innovative spirit, vision, and talent of CSHL&#039;s scientists continue to place CSHL among the top 1% of life science institutions most cited in published research." />
+<meta property="og:url" content="https://www.cshl.edu/research/" />
+<meta property="og:site_name" content="Cold Spring Harbor Laboratory" />
+<meta property="article:publisher" content="https://www.facebook.com/cshlnews" />
+<meta property="article:section" content="Research" />
+<meta property="og:image" content="https://www.cshl.edu/wp-content/uploads/2018/10/siteimage-512x512.png" />
+<meta property="og:image:secure_url" content="https://www.cshl.edu/wp-content/uploads/2018/10/siteimage-512x512.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="The innovative spirit, vision, and talent of CSHL&#039;s scientists continue to place CSHL among the top 1% of life science institutions most cited in published research." />
+<meta name="twitter:title" content="Research - Cold Spring Harbor Laboratory" />
+<meta name="twitter:site" content="@CSHL" />
+<meta name="twitter:image" content="https://www.cshl.edu/wp-content/uploads/2018/10/siteimage-512x512.png" />
+<meta name="twitter:creator" content="@CSHL" />
+<script type='application/ld+json' class='yoast-schema-graph yoast-schema-graph--main'>{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.cshl.edu/#organization","name":"Cold Spring Harbor Laboratory","url":"https://www.cshl.edu/","sameAs":["https://www.facebook.com/cshlnews","https://www.instagram.com/cshlnews/","https://www.linkedin.com/school/cold-spring-harbor-laboratory/","https://www.youtube.com/user/ColdSpringHarborLab","https://twitter.com/CSHL"],"logo":{"@type":"ImageObject","@id":"https://www.cshl.edu/#logo","inLanguage":"en-US","url":"https://www.cshl.edu/wp-content/uploads/2017/05/placeholderImage-1.png","width":1920,"height":1080,"caption":"Cold Spring Harbor Laboratory"},"image":{"@id":"https://www.cshl.edu/#logo"}},{"@type":"WebSite","@id":"https://www.cshl.edu/#website","url":"https://www.cshl.edu/","name":"Cold Spring Harbor Laboratory","inLanguage":"en-US","description":"Founded in 1890, Cold Spring Harbor Laboratory (CSHL) is a preeminent international research institution, achieving breakthroughs in molecular biology and genetics and enhancing scientific knowledge worldwide.","publisher":{"@id":"https://www.cshl.edu/#organization"},"potentialAction":[{"@type":"SearchAction","target":"https://www.cshl.edu/?s={search_term_string}","query-input":"required name=search_term_string"}]},{"@type":"WebPage","@id":"https://www.cshl.edu/research/#webpage","url":"https://www.cshl.edu/research/","name":"Research - Cold Spring Harbor Laboratory","isPartOf":{"@id":"https://www.cshl.edu/#website"},"inLanguage":"en-US","datePublished":"2017-04-24T16:05:30+00:00","dateModified":"2020-12-07T16:37:07+00:00","description":"The innovative spirit, vision, and talent of CSHL's scientists continue to place CSHL among the top 1% of life science institutions most cited in published research.","breadcrumb":{"@id":"https://www.cshl.edu/research/#breadcrumb"},"potentialAction":[{"@type":"ReadAction","target":["https://www.cshl.edu/research/"]}]},{"@type":"BreadcrumbList","@id":"https://www.cshl.edu/research/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","@id":"https://www.cshl.edu/","url":"https://www.cshl.edu/","name":"Home"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","@id":"https://www.cshl.edu/research/","url":"https://www.cshl.edu/research/","name":"Research"}}]}]}</script>
+<!-- / Yoast SEO plugin. -->
+
+<link rel='dns-prefetch' href='//www.cshl.edu' />
+<link rel='dns-prefetch' href='//repository.cshl.edu' />
+<link rel='dns-prefetch' href='//assets.juicer.io' />
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel="alternate" type="application/rss+xml" title="Cold Spring Harbor Laboratory &raquo; Feed" href="https://www.cshl.edu/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Cold Spring Harbor Laboratory &raquo; Comments Feed" href="https://www.cshl.edu/comments/feed/" />
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/12.0.0-1\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/www.cshl.edu\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.2.3"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55357,56424,55356,57342,8205,55358,56605,8205,55357,56424,55356,57340],[55357,56424,55356,57342,8203,55358,56605,8203,55357,56424,55356,57340]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link rel='stylesheet' id='cshl_related_content_css-css'  href='https://www.cshl.edu/wp-content/plugins/cshl-related-content/css/style.css?version=0.1.0&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-block-library-css'  href='https://www.cshl.edu/wp-includes/css/dist/block-library/style.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cshl_search_plugin_css_global-css'  href='https://www.cshl.edu/wp-content/plugins/3sv-search-plugin/css/global-styles.css?version=0.0.1&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='social-share-style-file-css'  href='https://www.cshl.edu/wp-content/plugins/ag-social-share/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='contact-form-7-css'  href='https://www.cshl.edu/wp-content/plugins/contact-form-7/includes/css/styles.css?ver=5.1.9' type='text/css' media='all' />
+<link rel='stylesheet' id='dashicons-css'  href='https://www.cshl.edu/wp-includes/css/dashicons.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='my-calendar-reset-css'  href='https://www.cshl.edu/wp-content/plugins/my-calendar/css/reset.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='my-calendar-style-css'  href='https://www.cshl.edu/wp-content/plugins/my-calendar/styles/twentyeighteen.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cookie-consent-style-css'  href='https://www.cshl.edu/wp-content/plugins/uk-cookie-consent/assets/css/style.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wf_magnific_popup_styles-css'  href='https://www.cshl.edu/wp-content/plugins/wf-magnific-lightbox/css/magnific-popup.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='wfml_custom-css'  href='https://www.cshl.edu/wp-content/plugins/wf-magnific-lightbox/css/wfml-custom.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='animate-css'  href='https://www.cshl.edu/wp-content/plugins/wp-quiz-pro/assets/frontend/css/animate.css?ver=3.6.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wp-quiz-css'  href='https://www.cshl.edu/wp-content/plugins/wp-quiz-pro/assets/frontend/css/wp-quiz.css?ver=2.1.5' type='text/css' media='all' />
+<link rel='stylesheet' id='wpfront-notification-bar-css'  href='https://www.cshl.edu/wp-content/plugins/wpfront-notification-bar/css/wpfront-notification-bar.min.css?ver=1.8.1' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/bootstrap.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='ionicons-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/ionicons.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/font-awesome-4.7.0/css/font-awesome.min.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='fontawesome5brands-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/font-awesome-5/css/brands.min.css?version=5.10.2&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='bootstrap-card-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/bootstrap-card.css?version=4.4.3&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cshl-coresite-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/style.css?version=1.7.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cshl-mycalendar-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/mycalendar.css?version=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='topnav-divisions-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/topnav-divisions.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='footer-divisions-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/footer-divisions.css?version=1.0.2&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cshl-coresite-division-css'  href='https://www.cshl.edu/wp-content/themes/cshl-coresite/css/division-nav-styles.css?version=1.0.4&#038;ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='juicerstyle-css'  href='//assets.juicer.io/embed.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cf7cf-style-css'  href='https://www.cshl.edu/wp-content/plugins/cf7-conditional-fields/style.css?ver=1.9.14' type='text/css' media='all' />
+<script type='text/javascript' src='https://www.cshl.edu/wp-includes/js/jquery/jquery.js?ver=1.12.4-wp'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-includes/js/jquery/jquery-migrate.min.js?ver=1.4.1'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/3sv-search-plugin/js/global-scripts.js?version=0.0.1&#038;ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/wpfront-notification-bar/js/wpfront-notification-bar.min.js?ver=1.8.1'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/navigation.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/jquery-2.2.4.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://repository.cshl.edu/util/js/IRcorsHTTPS.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/bootstrap.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/carousel.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/megamenu.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/logopage.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/list.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/jplist.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/stickyTabs.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/responsiveTabs.js?ver=5.2.3'></script>
+<link rel='https://api.w.org/' href='https://www.cshl.edu/wp-json/' />
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.cshl.edu/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.cshl.edu/wp-includes/wlwmanifest.xml" /> 
+<link rel='shortlink' href='https://www.cshl.edu/?p=190' />
+<link rel="alternate" type="application/json+oembed" href="https://www.cshl.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.cshl.edu%2Fresearch%2F" />
+<link rel="alternate" type="text/xml+oembed" href="https://www.cshl.edu/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.cshl.edu%2Fresearch%2F&#038;format=xml" />
+
+		<!-- GA Google Analytics @ https://m0n.co/ga -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+			ga('create', 'UA-18765501-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+
+	
+<style type="text/css">
+<!--
+/* Styles by My Calendar - Joseph C Dolson http://www.joedolson.com/ */
+
+.mc-event-visible {
+	display: block!important;
+}
+.mc-main {--primary-dark: #313233; --primary-light: #fff; --secondary-light: #fff; --secondary-dark: #000; --highlight-dark: #666; --highlight-light: #efefef; }
+-->
+</style><style id="ctcc-css" type="text/css" media="screen">
+				#catapult-cookie-bar {
+					box-sizing: border-box;
+					max-height: 0;
+					opacity: 0;
+					z-index: 99999;
+					overflow: hidden;
+					color: #000000;
+					position: fixed;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					background-color: #ef4e22;
+				}
+				#catapult-cookie-bar a {
+					color: #000000;
+				}
+				#catapult-cookie-bar .x_close span {
+					background-color: #000000;
+				}
+				button#catapultCookie {
+					background:#ffffff;
+					color: #000000;
+					border: 0; padding: 6px 9px; border-radius: 3px;
+				}
+				#catapult-cookie-bar h3 {
+					color: #000000;
+				}
+				.has-cookie-bar #catapult-cookie-bar {
+					opacity: 1;
+					max-height: 999px;
+					min-height: 30px;
+				}</style><style type="text/css">.broken_link, a.broken_link {
+	color:red;
+}
+
+.broken_link::before, a.broken_link::before {
+	content: " \2192  ";
+}
+
+.broken_link::after, a.broken_link::after {
+	content: " \2190 ";
+}</style></head>
+
+<body class="page-template page-template-landing-page page-template-landing-page-php page page-id-190 page-parent division-dropdown drawer drawer--right group-blog">
+
+<div id="page" class="site">
+	<a class="skip-link sr-only" href="#content">Skip to content</a>
+
+	<header id="masthead" class="site-header" role="banner">
+
+
+		<nav id="site-navigation" class="main-navigation navbar navbar-default navbar-static-top" role="navigation">	
+	<div id="search-toggle-new"><a role="button" class="search-toggle" href="#search-container" aria-expanded="false" aria-controls="search-container" aria-label="Search CSHL"><i class="fa fa-search" style="
+display:inline"></i></a>
+			</div>
+
+<div id="search-container" class="search-inline hide">
+		<form id="search-bar-form" action="/search-cshl" method="get">
+				<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<label class="sr-only for="_search">
+						<span>Search CSHL &hellip;</span>
+					</label>
+					<div class="search-bar-form--input">
+						<input type="text" class="form-control search-box" placeholder="Search CSHL &hellip;" name="_search" id="search" aria-label="Search CSHL"/>
+						<i class="fa fa-search"></i>
+					</div>
+				</div>
+				<div class="col-md-2">
+					<button type="submit" role="button" id="search-submit" class="btn btn-special" aria-label="Search CSHL submit button">Search</button>
+				</div>
+				<div class="col-md-12 section-search-wrap">
+											<label>
+							<input type="radio" name="_site_section" value="research" checked />
+							Search within <em>Research</em>
+						</label>
+						<label>
+							<input type="radio" name="_site_section" value="" />
+							Search entire website
+						</label>
+					 
+				</div>
+			</div>
+		</div>
+			</form>
+</div>
+
+
+<script>
+// Search toggle.
+		$( '.search-toggle' ).on( 'click.cshl-coresite', function( event ) {
+			event.preventDefault();
+			var that    = $( this ),
+				wrapper = $( '#search-container' ),
+				container = that.find( 'a' );
+
+			that.toggleClass( 'active' );
+			wrapper.toggleClass( 'hide' );
+/*
+			if ( that.hasClass( 'active' ) ) {
+				container.attr( 'aria-expanded', 'true' );
+				if ($(document).width() > 891) {// remove desktop hamburger menu
+					$('.drawer-hamburger-icon').addClass('noTransition');
+					$('.drawer-toggle.drawer-hamburger').addClass('noTransition');
+					$('div.insite-nav').addClass('inVisible');
+					$('.drawer-hamburger-icon').addClass('inVisible');
+					$('.drawer-toggle.drawer-hamburger').addClass('inVisible');
+				}
+			} else {
+				container.attr( 'aria-expanded', 'false' );
+				if ($(document).width() > 891) {// restore desktop hamburger menu
+					$('.drawer-hamburger-icon').removeClass('noTransition');
+					$('.drawer-toggle.drawer-hamburger').removeClass('noTransition');
+					$('div.insite-nav').removeClass('inVisible');
+					$('.drawer-hamburger-icon').removeClass('inVisible');
+					$('.drawer-toggle.drawer-hamburger').removeClass('inVisible');
+				}
+			}
+*/			
+			if ( that.is( '.active' ) || $( '.search-toggle .screen-reader-text' )[0] === event.target ) {
+				wrapper.find( '.search-field' ).focus();
+			}
+		} );
+</script>
+
+<div class="container-fluid" id="new-primary-wrapper">
+<div id="new-primary-background"></div>	
+<div class="navbar-header">
+<a class="navbar-brand" href="https://www.cshl.edu/">
+   <span class="sr-only" aria-label="Cold Spring Harbor Laboratory">Cold Spring Harbor Laboratory</span></a>
+</div>
+  
+<div class="divBanner"><a href="https://www.cshl.edu/research/">Research</a> <span>   &nbsp;&nbsp;&nbsp;A Division of CSHL</span></div><div class="menu-container">
+    <div class="menu"><ul id="primary-menu" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28878"><a href="https://www.cshl.edu/about-us/">About Us</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28884"><a href="https://www.cshl.edu/about-us/contact-us/">Contact Us</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28885"><a href="https://www.cshl.edu/about-us/directions/">Directions</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28886"><a href="https://www.cshl.edu/about-us/leadership/">Leadership</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28887"><a href="https://www.cshl.edu/about-us/cshl-president/">CSHL President</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30821"><a href="https://www.cshl.edu/about-us/cshl-chief-operating-officer/">CSHL Chief Operating Officer</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-30820"><a href="https://www.cshl.edu/about-us/administrative-departments/">Administrative Departments</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28888"><a href="https://www.cshl.edu/about-us/board-of-trustees/">Board of Trustees</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28889"><a href="https://www.cshl.edu/about-us/divisions/">Divisions</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28890"><a href="https://www.cshl.edu/about-us/size-and-reach/">Size and Reach</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28891"><a href="https://www.cshl.edu/about-us/annual-reports/">Annual Reports</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28894"><a href="https://www.cshl.edu/about-us/history/">History</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28895"><a href="https://www.cshl.edu/about-us/history/a-lab-like-no-other/">A Lab Like No Other</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28896"><a href="https://www.cshl.edu/about-us/history/discoveries-timeline/">Discoveries Timeline</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28897"><a href="https://www.cshl.edu/about-us/history/institutes-directors-timeline/">Institutes &#038; Directors Timeline</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28898"><a href="https://www.cshl.edu/about-us/history/nobel-prize-winners/">Nobel Prize Winners</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-31837"><a href="https://www.cshl.edu/how-one-family-secured-the-future-of-a-laboratory/">How one family secured the future of a laboratory</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-post menu-item-31840"><a href="https://www.cshl.edu/good-genes-bad-science/">Good genes, bad science</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-33174"><a href="https://www.cshl.edu/about-us/dei/">Office of Diversity, Equity, &#038; Inclusion</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28899"><a href="https://www.cshl.edu/about-us/careers/">Careers</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28879"><a href="https://www.cshl.edu/public-events/">Events</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28901"><a href="https://www.cshl.edu/public-events/event-calendar/">Event Calendar</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28902"><a href="https://www.cshl.edu/public-events/lectures/">Lectures</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28903"><a href="https://www.cshl.edu/public-events/concerts/">Concerts</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28904"><a href="https://www.cshl.edu/public-events/tour-cshl/">Tour CSHL</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28880"><a href="https://www.cshl.edu/news-stand/">Newsstand</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28906"><a href="https://www.cshl.edu/news-stand/cshl-stories/">CSHL Stories and Media</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28908"><a href="https://www.cshl.edu/news-stand/cshl-stories/news/">News</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28909"><a href="https://www.cshl.edu/news-stand/cshl-stories/features/">Features</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28910"><a href="https://www.cshl.edu/news-stand/blog/"><em>LabDish</em> Blog</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28911"><a href="https://www.cshl.edu/news-stand/for-the-media/">For the Media</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28912"><a href="https://www.cshl.edu/news-stand/harbor-transcript/"><em>Harbor Transcript</em> magazine</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28913"><a href="https://www.cshl.edu/news-stand/newsletter/">Newsletter</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28914"><a href="https://www.cshl.edu/news-stand/podcast-library/">Podcast Library</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28915"><a href="https://www.cshl.edu/news-stand/videos/">Video Library</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28916"><a href="https://www.cshl.edu/news-stand/logos/">Logos/Graphic identity guidelines</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28881"><a href="https://www.cshl.edu/partner-with-us/">Partner With Us</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28917"><a href="https://www.cshl.edu/partner-with-us/technology-transfer/">Business Development &#038; Technology Transfer</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28918"><a href="https://www.cshl.edu/partner-with-us/technology-transfer/technology-transfer-resources/">Technology Transfer Resources</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-43925"><a href="https://www.cshl.edu/partner-with-us/procurement/">Office of Procurement</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28919"><a href="https://www.cshl.edu/partner-with-us/office-of-sponsored-programsgrants/">Office of Sponsored Programs/Grants</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29603"><a href="https://www.cshl.edu/partner-with-us/preprints/">Preprints</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28882"><a href="https://www.cshl.edu/about-us/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28883"><a href="https://www.cshl.edu/giving/">Giving</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28920"><a href="https://www.cshl.edu/giving/donate/">Donate Now</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28921"><a href="https://www.cshl.edu/giving/annual-giving/">Annual Giving</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28922"><a href="https://www.cshl.edu/giving/planned-giving/">Planned Giving</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28923"><a href="https://www.cshl.edu/giving/funds-endowment/">Funds &#038; Endowment</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28924"><a href="https://www.cshl.edu/giving/calendar/">Calendar</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28925"><a href="https://www.cshl.edu/giving/double-helix-medals-dinner/">Double Helix Medals Dinner</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28926"><a href="https://www.cshl.edu/giving/double-helix-medals-dinner/attend/">Attend</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28927"><a href="https://www.cshl.edu/giving/double-helix-medals-dinner/press-package/">Press Package</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28928"><a href="https://www.cshl.edu/giving/double-helix-medals-dinner/dhmd-video/">DHMD Video</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28929"><a href="https://www.cshl.edu/giving/double-helix-medals-dinner/past-dhmd/">Past DHMD</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28930"><a href="https://www.cshl.edu/giving/golf-tournament/">Golf Tournament</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28931"><a href="https://www.cshl.edu/giving/womens-partnership-science/">Women’s Partnership for Science</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28932"><a href="https://www.cshl.edu/giving/cshl-association-directors/">CSHL Association Directors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28933"><a href="https://www.cshl.edu/giving/corporate-advisory-board/">Corporate Advisory Board</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28934"><a href="https://www.cshl.edu/giving/donors/">Honor Roll of Donors</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28935"><a href="https://www.cshl.edu/giving/local-support/">Local Support</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28937"><a href="https://www.cshl.edu/giving/news/">News</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28938"><a href="https://www.cshl.edu/giving/history/">History</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28939"><a href="https://www.cshl.edu/giving/contact/">Contact Giving</a></li>
+</ul>
+</li>
+</ul><ul id="primary-menu-right" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-28870"><a href="https://www.cshl.edu/education/">Education Programs</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28997"><a href="https://www.cshl.edu/education/undergraduate-research-program/">Undergraduate Research Program</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28998"><a href="https://www.cshl.edu/education/partners-for-the-future/">Partners for the Future</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48412"><a href="https://www.cshl.edu/education/phd-program/">CSHL Graduate Program</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29000"><a href="https://www.cshl.edu/education/postdoc-resources/">Postdoc Resources</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48410"><a href="https://www.cshl.edu/education/center-for-humanities/">Center for Humanities</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28871"><a href="https://www.cshl.edu/research/faculty-staff/">Faculty</a></li>
+</ul><div class="title-on-mobile">Research Division Choices:</div><ul id="divisions-menu" class="menu divisions-dropdown"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36410"><a href="#">About</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36424"><a href="https://www.cshl.edu/research/faculty-staff/">Faculty &#038; Staff</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36423"><a href="https://www.cshl.edu/research/faculty-awards/">Faculty Awards</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36426"><a href="https://www.cshl.edu/research/cshl-northwell-health-affiliation/">CSHL-Northwell Health Affiliation</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36456"><a href="https://www.cshl.edu/research/highlights/">Research Highlights</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36411"><a href="#">Research Areas</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36412"><a href="#">Cancer Center</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36427"><a href="https://www.cshl.edu/research/cancer/">Cancer Center Home</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36428"><a href="https://www.cshl.edu/research/cancer/cancer-genetics-and-genomics/">Cancer Genetics and Genomics</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36429"><a href="https://www.cshl.edu/research/cancer/gene-regulation-and-inheritance/">Gene Regulation and Inheritance</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36430"><a href="https://www.cshl.edu/research/cancer/cellular-communication-in-cancer/">Cellular Communication in Cancer</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36413"><a href="#">Neuroscience</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36431"><a href="https://www.cshl.edu/research/neuroscience/">Neuroscience Home</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-49340"><a href="https://www.cshl.edu/research/neuroscience/neuroai/">NeuroAI</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36432"><a href="https://www.cshl.edu/research/neuroscience/stanley-institute-for-cognitive-genomics/">Stanley Institute for Cognitive Genomics</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36433"><a href="https://www.cshl.edu/research/neuroscience/swartz-foundation/">Swartz Foundation</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36414"><a href="https://www.cshl.edu/research/genomics/">Genomics</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36415"><a href="#">Quantitative Biology</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36434"><a href="https://www.cshl.edu/research/quantitative-biology/">Quantitative Biology Home</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36435"><a href="https://www.cshl.edu/research/quantitative-biology/scholars/">Scholars</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36436"><a href="https://www.cshl.edu/research/quantitative-biology/external-advisory-committee/">External Advisory Committee</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36437"><a href="https://www.cshl.edu/research/plant-biology/">Plant Biology</a></li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36417"><a href="#">Training</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36418"><a href="#">Fellows Programs</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36439"><a href="https://www.cshl.edu/research/fellows-programs-at-cshl/">Fellows Programs Overview</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36443"><a href="https://www.cshl.edu/research/fellows-programs-at-cshl/cshl-fellows-program/">CSHL Fellows Program</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36442"><a href="https://www.cshl.edu/research/fellows-programs-at-cshl/cshl-clinical-fellows-program/">CSHL Clinical Fellows Program</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36441"><a href="https://www.cshl.edu/research/fellows-programs-at-cshl/cshl-and-hofstra-northwell-health-clinical-and-translational-fellowship/">CSHL and Hofstra Northwell Health Clinical and Translational Fellowship</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36440"><a href="https://www.cshl.edu/research/fellows-programs-at-cshl/donaldson-translational-fellows-program/">Donaldson Translational Fellows Program</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36420"><a href="#">Postdoctoral Research</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36446"><a href="https://www.cshl.edu/research/postdoctoral-research/">Postdoctoral Research Overview</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36447"><a href="https://www.cshl.edu/research/postdoctoral-research/postdocs/">CSHL Postdoctoral Fellows</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-48414"><a href="https://www.cshl.edu/phd-program/">Graduate School</a></li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36421"><a href="#">Career Development</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36448"><a href="https://www.cshl.edu/research/career-development/">Career Development Overview</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36449"><a href="https://www.cshl.edu/research/career-development/bioscience-enterprise-club/">Bioscience Enterprise Club</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36450"><a href="https://www.cshl.edu/research/career-development/postdoc-liaison-committee/">Postdoctoral Liaison Committee</a></li>
+	</ul>
+</li>
+	<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36419"><a href="#">Translational Training</a>
+	<ul class="sub-menu">
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36444"><a href="https://www.cshl.edu/research/translational-training/">Translational Training Overview</a></li>
+		<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36445"><a href="https://www.cshl.edu/research/translational-training/summer-research-internship/">Summer Research Internship for Medical Students</a></li>
+	</ul>
+</li>
+</ul>
+</li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-36422"><a href="#">Scientific Resources</a>
+<ul class="sub-menu">
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36452"><a href="https://www.cshl.edu/research/scientific-resources/">Scientific Resources Home</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36453"><a href="https://www.cshl.edu/research/core-facilities/">Core Facilities</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36454"><a href="https://www.cshl.edu/research/information-technology-research-computing/">Research Computing</a></li>
+	<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-36455"><a href="https://www.cshl.edu/research/plant-biology/uplands-farm/">Uplands Farm</a></li>
+</ul>
+</li>
+</ul><ul class="menu divisions-dropdown addl-on-mobile"><span class="addl-title">OTHER DIVISIONS:</span><li class="" ><a href="https://www.cshl.edu/banbury/">Banbury Center</a></li><li class="" ><a href="https://www.cshl.edu/cold-spring-harbor-laboratory-press/">Cold Spring Harbor Laboratory Press</a></li><li class="" ><a href="https://www.cshl.edu/dna-learning-center/">DNA Learning Center</a></li><li class="" ><a href="https://www.cshl.edu/meetings-courses-program/">Meetings & Courses</a></li><li class="" ><a href="https://www.cshl.edu/phd-program/">Ph.D. Program</a></li></ul></div>
+    </div>
+		
+
+</div>			
+				
+			
+		</nav><!-- #site-navigation -->
+	</header><!-- #masthead -->
+
+
+	<div id="content" class="site-content">
+  
+
+    <!-- Carousel
+      ================================================== -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="heading carousel-transparent-gray-bg">
+          <!-- Required header field -->
+          <h1>Research</h1>
+          <h4>Advancing the frontiers of biology</h4>
+          
+        </div>
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+
+
+         <div class="item active" style="background-image: url(https://www.cshl.edu/wp-content/uploads/2020/12/mouse_chandelier_cells-Huang.jpg);">
+                  <img class="first-slide" src="https://www.cshl.edu/wp-content/uploads/2020/12/mouse_chandelier_cells-Huang.jpg" alt="First slide"><div class="container"><div class="carousel-caption"><p><em><span class="transparent-blue-bg">Problems with depth perception caused by too many cells</span></em></p><p><a href="https://www.cshl.edu/problems-with-depth-perception-caused-by-too-many-cells/" class="btn btn-learn-more-ag-light-blue">Read the story</a></p></div></div></div><div class="item" style="background-image: url(https://www.cshl.edu/wp-content/uploads/2020/11/South_American_capuchino_seedeater.png);">
+              <img class="second-slide" src="https://www.cshl.edu/wp-content/uploads/2020/11/South_American_capuchino_seedeater.png" alt="Second slide"><div class="container"><div class="carousel-caption"><p><em><span class="transparent-blue-bg">Birds of a feather do flock together</span></em></p><p><a href="https://www.cshl.edu/birds-of-a-feather-do-flock-together/" class="btn btn-learn-more-ag-light-blue">Read the story</a></p></div></div></div><div class="item" style="background-image: url(https://www.cshl.edu/wp-content/uploads/2018/02/Heros_Joshua-Tor.jpg);">
+              <img class="third-slide" src="https://www.cshl.edu/wp-content/uploads/2018/02/Heros_Joshua-Tor.jpg" alt="Third slide"><div class="container"><div class="carousel-caption"><p><em><span class="transparent-blue-bg">Joshua-Tor wins Biophysical Society honor</span></em></p><p><a href="https://www.cshl.edu/joshua-tor-wins-biophysical-society-honor/" class="btn btn-learn-more-ag-light-blue">Read the story</a></p></div></div></div>    </div><!--/.carousel-inner-->
+
+<!-- Controls -->
+<a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  <span class="icon-prev"></span>
+  <span class="sr-only">Previous</span>
+</a>
+<a class="right carousel-control" href="#myCarousel" data-slide="next">
+  <span class="icon-next"></span>
+  <span class="sr-only">Next</span>
+</a>
+
+</div><!-- /.carousel --><div class="container-fluid">
+<div class="row">
+
+	<div id="primary" class="col-sm-12">
+		<main id="main" class="site-main" role="main" >
+		
+<!-- Load right hamburger nav from template part -->
+    
+    <div class="insite-nav">
+    <span>CSHL Menu</span>
+    <!--<span style="display:inline-block;margin: 31px 0 0 15px; ">CSHL Menu</span>-->
+    <button type="button" class="drawer-toggle drawer-hamburger">
+    <span class="sr-only">toggle navigation</span>
+    <span class="drawer-hamburger-icon"></span>
+    </button>
+    </div>  <!-- Navigation OffNav Menu -->
+  <nav class="drawer-nav" role="navigation">
+  <ul class="drawer-menu">
+  <h3>CSHL MENU</h3>
+  <li class="page_item page-item-33098"><a href="https://www.cshl.edu/search-cshl/">Search CSHL</a></li>
+<li class="page_item page-item-656 page_item_has_children"><a href="https://www.cshl.edu/about-us/">About Us</a></li>
+<li class="page_item page-item-208 page_item_has_children"><a href="https://www.cshl.edu/public-events/">Public Events</a></li>
+<li class="page_item page-item-206 page_item_has_children"><a href="https://www.cshl.edu/news-stand/">Newsstand</a></li>
+<li class="page_item page-item-210 page_item_has_children"><a href="https://www.cshl.edu/partner-with-us/">Partner With Us</a></li>
+<li class="page_item page-item-212 page_item_has_children"><a href="https://www.cshl.edu/giving/">Giving</a></li>
+<li class="page_item page-item-104 page_item_has_children"><a href="https://www.cshl.edu/education/">Education</a></li>
+<li class="page_item page-item-190 page_item_has_children current_page_item"><a href="https://www.cshl.edu/research/" aria-current="page">Research</a></li>
+<li class="page_item page-item-253 page_item_has_children"><a href="https://www.cshl.edu/banbury/">Banbury Center</a></li>
+<li class="page_item page-item-32749 page_item_has_children"><a href="https://www.cshl.edu/cold-spring-harbor-laboratory-press/">Cold Spring Harbor Laboratory Press</a></li>
+<li class="page_item page-item-16808"><a href="https://www.cshl.edu/dna-learning-center/">DNA Learning Center</a></li>
+<li class="page_item page-item-16814"><a href="https://www.cshl.edu/meetings-courses-program/">Meetings &#038; Courses Program</a></li>
+<li class="page_item page-item-354 page_item_has_children"><a href="https://www.cshl.edu/phd-program/">Graduate School</a></li>
+<li class="page_item page-item-47154"><a href="https://www.cshl.edu/archives/">Archives</a></li>
+<li class="page_item page-item-16811"><a href="https://www.cshl.edu/library/">Library</a></li>
+
+  </ul>
+  </nav>
+<!-- Load breadcrumb from template part -->
+
+
+<div class="row">
+	<div class="col-sm-12 col-lg-10 col-lg-offset-1">
+
+
+
+
+		
+				<p id="breadcrumbs" class="landingbread"><span><span><a href="https://www.cshl.edu/" >Home</a> / <span class="breadcrumb_last" aria-current="page">Research</span></span></span></p>
+					</div>
+</div>    
+
+
+
+
+
+<!-- start Simple Content Box -->
+<div class="row top-margin-15">
+    <div class="col-sm-12 col-lg-10 col-lg-offset-1 ">
+    
+        <!-- A secondary header is optional in the simple content box. This code checks if it exists before placing it on the page -->
+<p>Research at the Laboratory is enriched by collaborations with scientists at other universities, hospitals, and in the biotech and pharmaceutical sectors. The innovative spirit, vision, and talent of the Laboratory’s scientists continue to place CSHL among the top 1% of life science institutions most cited in published research.</p>
+
+       <!-- A button is optional, this code checks if it exists before placing the code on the page -->
+         
+	</div>
+</div>
+<!-- end Simple Content Box -->
+  
+
+
+		<div class="row area-start flex ag-eqht row-special-gray">
+
+<!-- Column 1--><!-- Offset left is  1--><!-- Offset right is  --><div class="col-lg-offset-1 col-xs-12 col-sm-4 col-md-4">
+
+<!--  News -- box --><div class="panel panel-default panel-callout eqht-wrapper-body"><a href="https://www.cshl.edu/the-worlds-first-dna-tricorder-in-your-pocket/"><div class="panel-heading"><h4 class="panel-title"><img class="img-responsive" src="https://www.cshl.edu/wp-content/uploads/2020/12/Aspyn_Palatnick_with_nanopore_and_iphone-814x458.jpg" alt="The world's first DNA "tricorder" in your pocket" /></h4><h5 class="panel-subtitle">Research News</h5></div><!--/.panel-heading--><div class="panel-body"><h4>The world's first DNA "tricorder" in your pocket</h4><p class="date">December 7, 2020</p><p>A new iPhone app, paired with a handheld sequencer, can recreate a genetics laboratory anywhere in the world. &nbsp; <span class="link">Read the story &raquo;</span></p></div></a></div><!--/.panel--></div><!--/.col--><!-- Column 2--><!-- Offset left is  --><!-- Offset right is  --><div class="col-xs-12 col-sm-4 col-md-4">
+
+<!--  News -- box --><div class="panel panel-default panel-callout eqht-wrapper-body"><a href="https://www.cshl.edu/live-at-the-lab-with-partha-mitra-ai-and-brain-circuits/"><div class="panel-heading"><h4 class="panel-title"><img class="img-responsive" src="https://www.cshl.edu/wp-content/uploads/2018/10/Partha-Mitra-hero-814x458.jpg" alt="<em>LIVE at the Lab</em> with Partha Mitra: AI and brain circuits" /></h4><h5 class="panel-subtitle">CSHL News</h5></div><!--/.panel-heading--><div class="panel-body"><h4><em>LIVE at the Lab</em> with Partha Mitra: AI and brain circuits</h4><p class="date">November 27, 2020</p><p>CSHL Professor Partha Mitra presents some challenges for neuroscientists and how artificial intelligence (AI) helps overcome them. &nbsp; <span class="link">Read the story &raquo;</span></p></div></a></div><!--/.panel--></div><!--/.col--><!-- Column 3--><!-- Offset left is  --><!-- Offset right is  1--><div class="col-lg-offset-right-1 col-xs-12 col-sm-4 col-md-4">
+
+<!-- Video --><div class="panel panel-default panel-callout eqht-wrapper-body"><a href="https://www.cshl.edu/videos/patricia-churchland-social-conscience/"><div class="panel-heading"><h4 class="panel-title"><img class="img-responsive" src="https://www.cshl.edu/wp-content/uploads/2020/11/CSHL_Live-at-the-Lab_with_Patricia_Churchland-814x458.jpg" alt="Patricia Churchland: Social Conscience" /></h4><h5 class="panel-subtitle"> Video</h5></div><!--/.panel-heading--><div class="panel-body"><h4>Patricia Churchland: Social Conscience</h4><p>Patricia Churchland, founder of the field of neurophilosophy, discusses research on the origins of human morality and social bonding. &nbsp; <span class="link">Watch the video &raquo;</span></p></div></a></div><!--/.panel--></div><!--/.col-->      </div> <!-- close row -->
+
+    
+
+
+
+
+
+
+		
+</main><!-- #main -->		
+		
+
+		
+	</div><!-- #primary -->
+</div><!-- #container -->
+
+
+
+
+
+
+
+
+
+
+</div><!--close the row RCG -->
+</div><!-- #content -->
+
+<footer id="colophon" class="site-footer" role="contentinfo">
+
+  <div class="container-fluid">
+
+      
+
+<section>
+	<div id="section_nav_widget-4" class="section-nav section_nav_widget"><!--Research--><div class='row footer-bg-black'>
+				<div class='col-lg-offset-1 col-lg-11 col-xs-12'>
+					<div class='row'>
+						<div class='col-xs-12'>
+							<h2><a class='linked-section-nav-header' href=https://www.cshl.edu/research/>Research</a> &nbsp; </h2>
+						</div>
+					</div>
+					<div class='row'><div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>    <h4 class='section-h4'>About</h4>    <p>    <a href='https://www.cshl.edu/research/faculty-staff/'>Faculty & Staff</a><br/>    <a href='https://www.cshl.edu/research/faculty-awards/'>Faculty Awards</a><br/>    <a href='https://www.cshl.edu/research/cshl-northwell-health-affiliation/'>CSHL-Northwell Health Affiliation</a><br/>    </p>  </div><!-- /column --><div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>    <h4 class='section-h4'>Research Areas</h4>    <p>    <a href='https://www.cshl.edu/research/cancer/'>Cancer Center</a><br/>    <a href='https://www.cshl.edu/research/neuroscience/'>Neuroscience</a><br/>    <a href='https://www.cshl.edu/research/genomics/'>Genomics</a><br/>    <a href='https://www.cshl.edu/research/quantitative-biology/'>Quantitative Biology</a><br/>    <a href='https://www.cshl.edu/research/plant-biology/'>Plant Biology</a><br/>    </p>  </div><!-- /column --><div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>    <h4 class='section-h4'>Training</h4>    <p>    <a href='https://www.cshl.edu/research/fellows-programs-at-cshl/'>Fellows Programs</a><br/>    <a href='https://www.cshl.edu/research/postdoctoral-research/'>Postdoctoral Research</a><br/>    <a href='/education/phd-program/'>Graduate Program <span class='fa '></span></a><br/>    <a href='https://www.cshl.edu/research/career-development/'>Career Development</a><br/>    <a href='https://www.cshl.edu/research/translational-training/'>Translational Training</a><br/>    </p>  </div><!-- /column --><div class='col-lg-3 col-md-3 col-sm-3 col-xs-12'>    <h4 class='section-h4'>Scientific Resources</h4>    <p>    <a href='https://www.cshl.edu/research/core-facilities/'>Core Facilities</a><br/>    <a href='https://www.cshl.edu/partner-with-us/office-of-sponsored-programsgrants/'>Sponsored Programs/Grants <span class='fa '></span></a><br/>    <a href='https://www.cshl.edu/research/plant-biology/uplands-farm/'>Uplands Farm</a><br/>    <a href='https://www.cshl.edu/research/information-technology-research-computing/'>Research Computing</a><br/>    <a href='https://www.cshl.edu/education/meetings-courses-program/'>Meetings & Courses Program <span class='fa '></span></a><br/>    <a href='https://www.cshl.edu/education/library-archives/'>Library & Archives <span class='fa '></span></a><br/>    </p>  </div><!-- /column --></div><!--row-->
+	</div><!--col-->
+</div><!--gradient row--></div>		<br/>
+</section>
+
+
+
+    <div class="row">
+
+    <div class="col-lg-offset-1 col-lg-11 col-xs-12">
+
+      <div class="row">
+
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 bottom-footer-column">
+
+        <h3 class="footer-contact-h3">Main Menu</h3>
+        <ul id="footer-column-1" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29002"><a href="https://www.cshl.edu/about-us/">About</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29003"><a href="https://www.cshl.edu/public-events/">Events</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29004"><a href="https://www.cshl.edu/news-stand/">Newsstand</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29005"><a href="https://www.cshl.edu/partner-with-us/">Partner With Us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29006"><a href="https://www.cshl.edu/about-us/careers/">Careers</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29007"><a href="https://www.cshl.edu/giving/">Giving</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29008"><a href="https://www.cshl.edu/education/">Education Programs</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29009"><a href="https://www.cshl.edu/research/faculty-staff/">Faculty</a></li>
+</ul>
+      </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 bottom-footer-column">
+        <h3 class="footer-contact-h3">Divisions</h3>
+       <ul id="footer-column-2" class="menu"><li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-190 current_page_item menu-item-29010"><a href="https://www.cshl.edu/research/" aria-current="page">Research</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29011"><a href="https://www.cshl.edu/banbury/">Banbury Center</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-44208"><a href="https://www.cshl.edu/cold-spring-harbor-laboratory-press/">CSHL Press</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29013"><a href="https://www.cshl.edu/dna-learning-center/">DNA Learning Center</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29014"><a href="https://www.cshl.edu/meetings-courses-program/">Meetings &#038; Courses Program</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29015"><a href="https://www.cshl.edu/phd-program/">Ph.D. Program</a></li>
+</ul>     </div>
+
+      <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 bottom-footer-column">
+        <h3 class="footer-contact-h3">Resources</h3>
+       <ul id="footer-column-3" class="menu"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-37402"><a href="http://library.cshl.edu">Library &#038; Archives</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29606"><a href="https://www.cshl.edu/partner-with-us/preprints/">Preprints</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49560"><a href="https://www.cshl.edu/wp-content/uploads/2020/12/CSHL_Whistleblower_Policy-Revised-05152019.pdf">Whistleblower Policy (pdf)</a></li>
+</ul>     </div>
+
+     <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 bottom-footer-column" id="footer-contact-column">
+      
+
+
+
+    <!-- need to take the pull-right class out of this div in functions.php line 144 -->
+
+        <div id="custom_html-6" ><div class="textwidget custom-html-widget">   <h3 class="footer-contact-h3">Contact</h3>
+   
+   <p class="contact"><a href="tel:1-516-367-8800"><span class="fa fa-lg fa-phone-square"></span> (516) 367-8800</a><br/>
+
+
+     <a href="mailto:info@cshl.edu"><span class="fa fa-lg fa-envelope"></span> info@cshl.edu</a><br>
+     <a href="/about-us/directions/"><span class="fa fa-lg fa-map"></span> Maps &amp; Directions</a></p>
+
+
+     <p><a href="https://give.cshl.edu/" class="btn btn-learn-more-ag-green"><span class="fa fa-lg fa-gift"></span> Donate Now</a></p>
+
+     
+
+     <p><a href="/news-stand/newsletter/" class="btn btn-learn-more-ag-green"><span class="fa fa-envelope"></span> &nbsp; Newsletter</a></p>
+
+     <h3 class="footer-contact-h3">
+          Connect with CSHL
+    </h3>
+    
+    <p class="social">
+      <a href="http://www.facebook.com/cshlnews" title="like us on Facebook"><span class="fa fa-2x fa-facebook-square"></span></a> &nbsp; 
+      <a href="http://twitter.com/cshl" title="follow us on Twitter"><span class="fa fa-2x fa-twitter"></span></a> &nbsp; 
+      <a href="http://instagram.com/cshlnews" title="view our photos on Instagram"><span class="fa fa-2x fa-instagram"></span></a> &nbsp; 
+      <a href="http://www.youtube.com/ColdSpringHarborLab" title="visit CSHL on Youtube"><span class="fa fa-2x fa-youtube"></span></a> &nbsp; 
+      <a href="https://www.linkedin.com/company/cold-spring-harbor-laboratory/" title="connect with CSHL on Linkedin"><span class="fa fa-2x fa-linkedin"></span></a> &nbsp; 
+      <a href="https://flipboard.com/@CSHL" title="follow CSHL magazines on Flipboard"><span class="fab fa-flipboard fa-2x"></span></a> &nbsp; 
+      <a href="/feed" title="CSHL RSS feed"><span class="fa fa-2x fa-rss"></span></a></p></div></div>
+    </div>
+
+  </div>
+      
+    
+    </div> <!-- col -->
+  </div> <!-- row -->
+
+
+
+    <div class="row footer-copyright">
+     <div class="col-sm-4 col-xs-12">
+      <p class="small">&copy; 2020 Cold Spring Harbor Laboratory. All Rights Reserved.</p>
+    </div>
+    <div class="col-sm-4 col-xs-12">
+    <p class="small text-center">One Bungtown Road, Cold Spring Harbor, NY 11724</p>
+  </div><!--col-->
+    <div class="col-sm-4 col-xs-12">
+     <p class="pull-right small"><a href="/about-us/sitemap/">Sitemap</a> | <a href="/about-us/privacy-policy/">Privacy Policy</a> <!--| <a href="#">Terms of Use</a>--> </p>
+   </div>
+ </div>
+</div>
+
+</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+<style type="text/css">
+    #wpfront-notification-bar 
+    {
+        background: #ef4e22;
+        background: -moz-linear-gradient(top, #ef4e22 0%, #ef4e22 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ef4e22), color-stop(100%,#ef4e22));
+        background: -webkit-linear-gradient(top, #ef4e22 0%,#ef4e22 100%);
+        background: -o-linear-gradient(top, #ef4e22 0%,#ef4e22 100%);
+        background: -ms-linear-gradient(top, #ef4e22 0%,#ef4e22 100%);
+        background: linear-gradient(to bottom, #ef4e22 0%, #ef4e22 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4e22', endColorstr='#ef4e22',GradientType=0 );
+    }
+
+    #wpfront-notification-bar div.wpfront-message
+    {
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar a.wpfront-button
+    {
+        background: #555555;
+        background: -moz-linear-gradient(top, #555555 0%, #000000 100%);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#555555), color-stop(100%,#000000));
+        background: -webkit-linear-gradient(top, #555555 0%,#000000 100%);
+        background: -o-linear-gradient(top, #555555 0%,#000000 100%);
+        background: -ms-linear-gradient(top, #555555 0%,#000000 100%);
+        background: linear-gradient(to bottom, #555555 0%, #000000 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#555555', endColorstr='#000000',GradientType=0 );
+
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar-open-button
+    {
+        background-color: #008000;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close 
+    {
+        border: 1px solid #ffffff;
+        background-color: #ffffff;
+        color: #ffffff;
+    }
+
+    #wpfront-notification-bar  div.wpfront-close:hover 
+    {
+        border: 1px solid #000000;
+        background-color: #000000;
+    }
+    
+        
+    
+        
+</style>
+
+
+<div id="wpfront-notification-bar-spacer" class="hidden">
+    <div id="wpfront-notification-bar-open-button" aria-label="reopen" class="hidden top wpfront-bottom-shadow"></div>
+    <div id="wpfront-notification-bar" class="wpfront-fixed wpfront-bottom-shadow">
+                    <div aria-label="close" class="wpfront-close">X</div>
+                <table border="0" cellspacing="0" cellpadding="0" role="presentation">
+            <tr>
+                <td>
+                    <div class="wpfront-message">
+                        Coronavirus Disease 2019 (COVID-19) Advisory
+
+                    </div>
+                    <div>
+                                                                                            <a class="wpfront-button" href="https://www.cshl.edu/about-us/coronavirus-disease-2019-covid-19-advisory/"  target="_self" >Read now</a>
+                                                                                                                </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<style type="text/css">
+#wpfront-notification-bar div.wpfront-close {
+	border:2px solid #fff!important;
+	background-color:#ef4e22!important;
+	color:#fff!important;
+	font-size:16px;
+	font-weight:400;
+	padding:10px 5px;
+	top:8px;
+	right:8px;
+}
+#wpfront-notification-bar-open-button.top {
+	background-image:none!important;
+}
+#wpfront-notification-bar div.wpfront-message { margin:20px 35px 20px 15px; }
+@keyframes colorchange{
+      0%   {background: #00e200;}
+      25%  {background: #008000;}
+      50%  {background: #000a000;}
+      75%  {background: #008000;}
+      100% {background:#00e200;}
+}
+@-webkit-keyframes colorchange { /* Safari and Chrome - necessary duplicate */
+      0%   {background: #00e200;}
+      25%  {background: #008000;}
+      50%  {background: #000a000;}
+      75%  {background: #008000;}
+      100% {background: #00e200;}
+}
+#wpfront-notification-bar-open-button {
+	width:30px!important;
+	height:35px!important;
+        animation: colorchange 5s  ease infinite; 
+        -webkit-animation: colorchange 5s  ease infinite; /* Chrome and Safari */
+}
+#wpfront-notification-bar-open-button:before {
+	font-family:FontAwesome;
+	content: "\f063";
+	color:#fff;
+	font-size:23px;
+	padding:5px 4px;
+}
+
+@media (max-width:768px) {
+      .wpfront-message { margin:29px 15px 0px 15px!important; text-align:left!important; line-height:22px;  font-size:18px; }
+      #wpfront-notification-bar div.wpfront-message { padding: 0 20px 10px 0; }
+      #wpfront-notification-bar-spacer { height:auto!important; }
+      #wpfront-notification-bar-open-button { z-index:50; }
+}</style>
+            <script type="text/javascript">
+                function __load_wpfront_notification_bar() {
+                    if (typeof wpfront_notification_bar === "function") {
+                        wpfront_notification_bar({"position":1,"height":0,"fixed_position":"on","animate_delay":0.5,"close_button":true,"button_action_close_bar":false,"auto_close_after":0,"display_after":0,"is_admin_bar_showing":false,"display_open_button":"on","keep_closed":"on","keep_closed_for":1,"position_offset":90,"display_scroll":false,"display_scroll_offset":0,"keep_closed_cookie":"wpfront-notification-bar-keep-closed","log":false});
+                    } else {
+                                                setTimeout(__load_wpfront_notification_bar, 100);
+                    }
+                }
+                __load_wpfront_notification_bar();
+            </script>
+            <link rel='stylesheet' id='soundcite-css'  href='https://cdn.knightlab.com/libs/soundcite/latest/css/player.css?ver=5.2.3' type='text/css' media='all' />
+<link rel='stylesheet' id='cshl_offnav_css-css'  href='https://www.cshl.edu/wp-content/plugins/cshl-offnav/css/cshl-offnav.css?ver=5.2.3' type='text/css' media='all' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7 = {"apiSettings":{"root":"https:\/\/www.cshl.edu\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.9'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var ctcc_vars = {"expiry":"30","method":"1","version":"1"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/uk-cookie-consent/assets/js/uk-cookie-consent-js.js?ver=2.3.0'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/wf-magnific-lightbox/js/jquery.magnific-popup.min.1.0.1.js?ver=1.0'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var WfmlOptions = {"lang":"en"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/wf-magnific-lightbox/js/wfml-init.js?ver=1.4'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/wp-quiz-pro/assets/frontend/js/js.cookie.js?ver=2.2.0'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/drawer.js?ver=%20'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/iscroll.min.js?ver=%20'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/themes/cshl-coresite/js/skip-link-focus-fix.js?ver=20151215'></script>
+<script type='text/javascript' src='//assets.juicer.io/embed-no-jquery.js?ver=1.8'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpcf7cf_global_settings = {"ajaxurl":"https:\/\/www.cshl.edu\/wp-admin\/admin-ajax.php"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/cf7-conditional-fields/js/scripts.js?ver=1.9.14'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-includes/js/wp-embed.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://cdn.knightlab.com/libs/soundcite/latest/js/soundcite.min.js?ver=5.2.3'></script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/cshl-offnav/js/cshl-offnav.js?ver=5.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mcgrid = "true";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/my-calendar/js/mc-grid.js?ver=5.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mclist = "true";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/my-calendar/js/mc-list.js?ver=5.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mcmini = "true";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/my-calendar/js/mc-mini.js?ver=5.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var mcAjax = "true";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/my-calendar/js/mc-ajax.js?ver=5.2.3'></script>
+<script type='text/javascript'>
+/* <![CDATA[ */
+var my_calendar = {"newWindow":"Opens in new tab"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.cshl.edu/wp-content/plugins/my-calendar/js/mcjs.js?ver=5.2.3'></script>
+			
+				<script type="text/javascript">
+					jQuery(document).ready(function($){
+												if(!catapultReadCookie("catAccCookies")){ // If the cookie has not been set then show the bar
+							$("html").addClass("has-cookie-bar");
+							$("html").addClass("cookie-bar-bottom-bar");
+							$("html").addClass("cookie-bar-bar");
+													}
+																	});
+				</script>
+			
+			<div id="catapult-cookie-bar" class=""><div class="ctcc-inner cookieWrapper"><span class="ctcc-left-side">Our website uses cookies to enhance your experience on the site. By clicking &quot;continue&quot; or by continuing to use our website, you are agreeing to our use of cookies as detailed in our  <a class="ctcc-more-info-link" tabindex=0 target="_self" href="https://www.cshl.edu/about-us/privacy-policy/">Privacy Policy</a></span><span class="ctcc-right-side"><button id="catapultCookie" tabindex=0 onclick="catapultAcceptCookies();">continue</button></span></div><!-- custom wrapper class --></div><!-- #catapult-cookie-bar --><script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"bcb61ecd7f","applicationID":"41752661","transactionName":"Y10DYRZVDRFUWhBYW1oXIFYQXQwMGlUFX1BdVgYYFFUEBw==","queueTime":0,"applicationTime":777,"atts":"TxoAF15PHh8=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
+
+            
+
